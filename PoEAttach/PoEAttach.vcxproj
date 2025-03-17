@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{DCBD5135-5BE0-4AED-B09C-4FE6DFE030A1}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>PoEAttach</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;POEATTACH_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;.\Common;..\Global;.\Controllers;.\PoE;.\PoE\Components;.\PoE\Elements;.\PoE\FilesInMemory;.\PoE\Extensions;.\PoE\RemoteMemoryObjects;.\PoE\Resource;.\Models;.\Models\Interfaces;.\Logic;.\Utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4995;4996;</DisableSpecificWarnings>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;POEATTACH_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;POEATTACH_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;.\Common;..\Global;.\Controllers;.\PoE;.\PoE\Components;.\PoE\Elements;.\PoE\FilesInMemory;.\PoE\Extensions;.\PoE\RemoteMemoryObjects;.\PoE\Resource;.\Models;.\Models\Interfaces;.\Logic;.\Utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4995;4996;</DisableSpecificWarnings>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;POEATTACH_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Global\Global.h" />
+    <ClInclude Include="..\Global\XorStr.h" />
+    <ClInclude Include="Common\Common.h" />
+    <ClInclude Include="Common\defs.h" />
+    <ClInclude Include="Controllers\FsController.h" />
+    <ClInclude Include="Controllers\GameController.h" />
+    <ClInclude Include="Controllers\GameFunc.h" />
+    <ClInclude Include="Controllers\GameStateController.h" />
+    <ClInclude Include="Logic\GameLogic.h" />
+    <ClInclude Include="Logic\Path.h" />
+    <ClInclude Include="Logic\QuestLogic.h" />
+    <ClInclude Include="Logic\Skill.h" />
+    <ClInclude Include="Models\EntityListWrapper.h" />
+    <ClInclude Include="Patch.h" />
+    <ClInclude Include="PoEAttach.h" />
+    <ClInclude Include="PoE\Component.h" />
+    <ClInclude Include="PoE\Components\Actor.h" />
+    <ClInclude Include="PoE\Components\Armour.h" />
+    <ClInclude Include="PoE\Components\AttributeRequirements.h" />
+    <ClInclude Include="PoE\Components\Base.h" />
+    <ClInclude Include="PoE\Components\Charges.h" />
+    <ClInclude Include="PoE\Components\Chest.h" />
+    <ClInclude Include="PoE\Components\Life.h" />
+    <ClInclude Include="PoE\Components\MinimapIcon.h" />
+    <ClInclude Include="PoE\Components\Mods.h" />
+    <ClInclude Include="PoE\Components\Npc.h" />
+    <ClInclude Include="PoE\Components\Player.h" />
+    <ClInclude Include="PoE\Components\Positioned.h" />
+    <ClInclude Include="PoE\Components\Quality.h" />
+    <ClInclude Include="PoE\Components\Render.h" />
+    <ClInclude Include="PoE\Components\SkillGem.h" />
+    <ClInclude Include="PoE\Components\Sockets.h" />
+    <ClInclude Include="PoE\Components\Stack.h" />
+    <ClInclude Include="PoE\Components\Stats.h" />
+    <ClInclude Include="PoE\Components\Targetable.h" />
+    <ClInclude Include="PoE\Components\Transitionable.h" />
+    <ClInclude Include="PoE\Components\Weapon.h" />
+    <ClInclude Include="PoE\Components\WorldItem.h" />
+    <ClInclude Include="PoE\Element.h" />
+    <ClInclude Include="PoE\Elements\IncursionWindow.h" />
+    <ClInclude Include="PoE\Elements\ItemOnGroundTooltip.h" />
+    <ClInclude Include="PoE\Elements\ItemsOnGroundLabelElement.h" />
+    <ClInclude Include="PoE\Elements\Map.h" />
+    <ClInclude Include="PoE\Elements\PoeChatElement.h" />
+    <ClInclude Include="PoE\Elements\SkillElement.h" />
+    <ClInclude Include="PoE\Elements\StashElement.h" />
+    <ClInclude Include="PoE\Elements\SubterraneanChart.h" />
+    <ClInclude Include="PoE\Elements\SyndicatePanel.h" />
+    <ClInclude Include="PoE\Elements\WorldMapElement.h" />
+    <ClInclude Include="PoE\Entity.h" />
+    <ClInclude Include="PoE\Extensions\ChestsData.h" />
+    <ClInclude Include="PoE\Extensions\ItemData.h" />
+    <ClInclude Include="PoE\Extensions\MonsterData.h" />
+    <ClInclude Include="PoE\Extensions\NpcData.h" />
+    <ClInclude Include="PoE\Extensions\OtherData.h" />
+    <ClInclude Include="PoE\Extensions\PassiveSkill.h" />
+    <ClInclude Include="PoE\Extensions\PlayerData.h" />
+    <ClInclude Include="PoE\Extensions\WorldItemData.h" />
+    <ClInclude Include="PoE\FileInMemory.h" />
+    <ClInclude Include="PoE\FilesInMemory\QuestStates.h" />
+    <ClInclude Include="PoE\Offsets.h" />
+    <ClInclude Include="PoE\RemoteMemoryObject.h" />
+    <ClInclude Include="PoE\RemoteMemoryObjects\ActorSkill.h" />
+    <ClInclude Include="PoE\RemoteMemoryObjects\Buff.h" />
+    <ClInclude Include="PoE\RemoteMemoryObjects\IngameData.h" />
+    <ClInclude Include="PoE\RemoteMemoryObjects\IngameState.h" />
+    <ClInclude Include="PoE\RemoteMemoryObjects\IngameUIElements.h" />
+    <ClInclude Include="PoE\RemoteMemoryObjects\Inventory.h" />
+    <ClInclude Include="PoE\RemoteMemoryObjects\InventoryHolder.h" />
+    <ClInclude Include="PoE\RemoteMemoryObjects\ItemMod.h" />
+    <ClInclude Include="PoE\RemoteMemoryObjects\Quest.h" />
+    <ClInclude Include="PoE\RemoteMemoryObjects\QuestData.h" />
+    <ClInclude Include="PoE\RemoteMemoryObjects\QuestState.h" />
+    <ClInclude Include="PoE\RemoteMemoryObjects\SelectCharacterState.h" />
+    <ClInclude Include="PoE\RemoteMemoryObjects\ServerData.h" />
+    <ClInclude Include="PoE\RemoteMemoryObjects\ServerInventory.h" />
+    <ClInclude Include="PoE\RemoteMemoryObjects\WorldArea.h" />
+    <ClInclude Include="PoE\Resource\Gem.h" />
+    <ClInclude Include="PoE\Resource\ItemMods.h" />
+    <ClInclude Include="PoE\Resource\ItemResource.h" />
+    <ClInclude Include="PoE\Resource\ObjectResource.h" />
+    <ClInclude Include="PoE\Resource\QuestResource.h" />
+    <ClInclude Include="PoE\Resource\SkillResource.h" />
+    <ClInclude Include="PoE\Resource\StatsResource.h" />
+    <ClInclude Include="PoE\Resource\WorldAreaResource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="Utils\AStar.h" />
+    <ClInclude Include="Utils\CalcPath.h" />
+    <ClInclude Include="Utils\Dijkstra.h" />
+    <ClInclude Include="Utils\MurmurHash2.h" />
+    <ClInclude Include="Utils\Node.h" />
+    <ClInclude Include="Utils\PathAlgorithm.h" />
+    <ClInclude Include="Utils\PathFinder.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Global\Global.cpp" />
+    <ClCompile Include="Common\Common.cpp" />
+    <ClCompile Include="Controllers\FsController.cpp" />
+    <ClCompile Include="Controllers\GameController.cpp" />
+    <ClCompile Include="Controllers\GameFunc.cpp" />
+    <ClCompile Include="Controllers\GameStateController.cpp" />
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="Logic\GameLogic.cpp" />
+    <ClCompile Include="Logic\Path.cpp" />
+    <ClCompile Include="Logic\QuestLogic.cpp" />
+    <ClCompile Include="Logic\Skill.cpp" />
+    <ClCompile Include="Models\EntityListWrapper.cpp" />
+    <ClCompile Include="PoEAttach.cpp" />
+    <ClCompile Include="PoE\Component.cpp" />
+    <ClCompile Include="PoE\Components\Actor.cpp" />
+    <ClCompile Include="PoE\Components\Armour.cpp" />
+    <ClCompile Include="PoE\Components\AttributeRequirements.cpp" />
+    <ClCompile Include="PoE\Components\Base.cpp" />
+    <ClCompile Include="PoE\Components\Charges.cpp" />
+    <ClCompile Include="PoE\Components\Chest.cpp" />
+    <ClCompile Include="PoE\Components\Life.cpp" />
+    <ClCompile Include="PoE\Components\MinimapIcon.cpp" />
+    <ClCompile Include="PoE\Components\Mods.cpp" />
+    <ClCompile Include="PoE\Components\Npc.cpp" />
+    <ClCompile Include="PoE\Components\Player.cpp" />
+    <ClCompile Include="PoE\Components\Positioned.cpp" />
+    <ClCompile Include="PoE\Components\Quality.cpp" />
+    <ClCompile Include="PoE\Components\Render.cpp" />
+    <ClCompile Include="PoE\Components\SkillGem.cpp" />
+    <ClCompile Include="PoE\Components\Sockets.cpp" />
+    <ClCompile Include="PoE\Components\Stack.cpp" />
+    <ClCompile Include="PoE\Components\Stats.cpp" />
+    <ClCompile Include="PoE\Components\Targetable.cpp" />
+    <ClCompile Include="PoE\Components\Transitionable.cpp" />
+    <ClCompile Include="PoE\Components\Weapon.cpp" />
+    <ClCompile Include="PoE\Components\WorldItem.cpp" />
+    <ClCompile Include="PoE\Element.cpp" />
+    <ClCompile Include="PoE\Elements\IncursionWindow.cpp" />
+    <ClCompile Include="PoE\Elements\ItemOnGroundTooltip.cpp" />
+    <ClCompile Include="PoE\Elements\ItemsOnGroundLabelElement.cpp" />
+    <ClCompile Include="PoE\Elements\Map.cpp" />
+    <ClCompile Include="PoE\Elements\PoeChatElement.cpp" />
+    <ClCompile Include="PoE\Elements\SkillElement.cpp" />
+    <ClCompile Include="PoE\Elements\StashElement.cpp" />
+    <ClCompile Include="PoE\Elements\SubterraneanChart.cpp" />
+    <ClCompile Include="PoE\Elements\SyndicatePanel.cpp" />
+    <ClCompile Include="PoE\Elements\WorldMapElement.cpp" />
+    <ClCompile Include="PoE\Entity.cpp" />
+    <ClCompile Include="PoE\Extensions\ChestsData.cpp" />
+    <ClCompile Include="PoE\Extensions\ItemData.cpp" />
+    <ClCompile Include="PoE\Extensions\MonsterData.cpp" />
+    <ClCompile Include="PoE\Extensions\NpcData.cpp" />
+    <ClCompile Include="PoE\Extensions\OtherData.cpp" />
+    <ClCompile Include="PoE\Extensions\PassiveSkill.cpp" />
+    <ClCompile Include="PoE\Extensions\PlayerData.cpp" />
+    <ClCompile Include="PoE\Extensions\WorldItemData.cpp" />
+    <ClCompile Include="PoE\FileInMemory.cpp" />
+    <ClCompile Include="PoE\FilesInMemory\QuestStates.cpp" />
+    <ClCompile Include="PoE\Offsets.cpp" />
+    <ClCompile Include="PoE\RemoteMemoryObject.cpp" />
+    <ClCompile Include="PoE\RemoteMemoryObjects\ActorSkill.cpp" />
+    <ClCompile Include="PoE\RemoteMemoryObjects\Buff.cpp" />
+    <ClCompile Include="PoE\RemoteMemoryObjects\IngameData.cpp" />
+    <ClCompile Include="PoE\RemoteMemoryObjects\IngameState.cpp" />
+    <ClCompile Include="PoE\RemoteMemoryObjects\IngameUIElements.cpp" />
+    <ClCompile Include="PoE\RemoteMemoryObjects\Inventory.cpp" />
+    <ClCompile Include="PoE\RemoteMemoryObjects\InventoryHolder.cpp" />
+    <ClCompile Include="PoE\RemoteMemoryObjects\ItemMod.cpp" />
+    <ClCompile Include="PoE\RemoteMemoryObjects\Quest.cpp" />
+    <ClCompile Include="PoE\RemoteMemoryObjects\QuestData.cpp" />
+    <ClCompile Include="PoE\RemoteMemoryObjects\QuestState.cpp" />
+    <ClCompile Include="PoE\RemoteMemoryObjects\SelectCharacterState.cpp" />
+    <ClCompile Include="PoE\RemoteMemoryObjects\ServerData.cpp" />
+    <ClCompile Include="PoE\RemoteMemoryObjects\ServerInventory.cpp" />
+    <ClCompile Include="PoE\RemoteMemoryObjects\WorldArea.cpp" />
+    <ClCompile Include="PoE\Resource\Gem.cpp" />
+    <ClCompile Include="PoE\Resource\ItemMods.cpp" />
+    <ClCompile Include="PoE\Resource\ItemResource.cpp" />
+    <ClCompile Include="PoE\Resource\ObjectResource.cpp" />
+    <ClCompile Include="PoE\Resource\QuestResource.cpp" />
+    <ClCompile Include="PoE\Resource\SkillResource.cpp" />
+    <ClCompile Include="PoE\Resource\StatsResource.cpp" />
+    <ClCompile Include="PoE\Resource\WorldAreaResource.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Utils\AStar.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Utils\CalcPath.cpp" />
+    <ClCompile Include="Utils\Dijkstra.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Utils\MurmurHash2.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Utils\Node.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

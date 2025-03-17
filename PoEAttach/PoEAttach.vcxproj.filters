@@ -1,0 +1,605 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{100c15f6-e03e-4b14-ae04-1120f1f7b5c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PoE">
+      <UniqueIdentifier>{34a0f0dc-0455-41d6-a650-c0c03c46d9d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Controllers">
+      <UniqueIdentifier>{0c2ee4a2-335b-4522-b50f-163b849b5e21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PoE\Components">
+      <UniqueIdentifier>{c22533cc-e168-4bb2-b6cd-6b5464d2238f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PoE\Elements">
+      <UniqueIdentifier>{ea8a09da-a9ef-4bd4-8a3b-d418d707930b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PoE\FilesInMemory">
+      <UniqueIdentifier>{defe4e30-8140-41bd-a93d-8ad9ea941471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PoE\RemoteMemoryObjects">
+      <UniqueIdentifier>{6567c801-ab86-4d74-a67a-f513769fc35f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models">
+      <UniqueIdentifier>{cb77b1a4-459e-4386-863d-25b1007de422}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models\Interfaces">
+      <UniqueIdentifier>{d51b3f11-4929-4e0e-ba0e-ca15bb40ac4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PoE\Extensions">
+      <UniqueIdentifier>{bd80e748-1b20-459e-bce7-96eb63a3797f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PoE\Resource">
+      <UniqueIdentifier>{995da041-9756-49ae-8b17-01f52de5ad79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logic">
+      <UniqueIdentifier>{af5cc928-5ded-4a33-bfe1-8154dd3e910f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{c3120d19-7271-4bdf-a722-2a9f37b04586}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Common.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\defs.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Global\XorStr.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Global\Global.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Offsets.h">
+      <Filter>PoE</Filter>
+    </ClInclude>
+    <ClInclude Include="Controllers\GameController.h">
+      <Filter>Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="Controllers\GameStateController.h">
+      <Filter>Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\RemoteMemoryObject.h">
+      <Filter>PoE</Filter>
+    </ClInclude>
+    <ClInclude Include="PoEAttach.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\EntityListWrapper.h">
+      <Filter>Models</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\RemoteMemoryObjects\IngameData.h">
+      <Filter>PoE\RemoteMemoryObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\RemoteMemoryObjects\ServerData.h">
+      <Filter>PoE\RemoteMemoryObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Entity.h">
+      <Filter>PoE</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Components\Positioned.h">
+      <Filter>PoE\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Component.h">
+      <Filter>PoE</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\RemoteMemoryObjects\IngameState.h">
+      <Filter>PoE\RemoteMemoryObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Extensions\PlayerData.h">
+      <Filter>PoE\Extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Extensions\NpcData.h">
+      <Filter>PoE\Extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Extensions\MonsterData.h">
+      <Filter>PoE\Extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Extensions\ItemData.h">
+      <Filter>PoE\Extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\RemoteMemoryObjects\InventoryHolder.h">
+      <Filter>PoE\RemoteMemoryObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\RemoteMemoryObjects\ServerInventory.h">
+      <Filter>PoE\RemoteMemoryObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Components\Mods.h">
+      <Filter>PoE\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Components\Actor.h">
+      <Filter>PoE\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Components\Chest.h">
+      <Filter>PoE\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Components\Life.h">
+      <Filter>PoE\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Components\Npc.h">
+      <Filter>PoE\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Components\Player.h">
+      <Filter>PoE\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Components\Render.h">
+      <Filter>PoE\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Components\Stats.h">
+      <Filter>PoE\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Components\Targetable.h">
+      <Filter>PoE\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Components\WorldItem.h">
+      <Filter>PoE\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Elements\IncursionWindow.h">
+      <Filter>PoE\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Elements\ItemOnGroundTooltip.h">
+      <Filter>PoE\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Elements\ItemsOnGroundLabelElement.h">
+      <Filter>PoE\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Elements\Map.h">
+      <Filter>PoE\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Elements\PoeChatElement.h">
+      <Filter>PoE\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Elements\SkillElement.h">
+      <Filter>PoE\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Elements\StashElement.h">
+      <Filter>PoE\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Elements\SubterraneanChart.h">
+      <Filter>PoE\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Elements\SyndicatePanel.h">
+      <Filter>PoE\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Elements\WorldMapElement.h">
+      <Filter>PoE\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Extensions\ChestsData.h">
+      <Filter>PoE\Extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Extensions\OtherData.h">
+      <Filter>PoE\Extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Extensions\WorldItemData.h">
+      <Filter>PoE\Extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\RemoteMemoryObjects\ActorSkill.h">
+      <Filter>PoE\RemoteMemoryObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\RemoteMemoryObjects\Buff.h">
+      <Filter>PoE\RemoteMemoryObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\RemoteMemoryObjects\IngameUIElements.h">
+      <Filter>PoE\RemoteMemoryObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\RemoteMemoryObjects\Inventory.h">
+      <Filter>PoE\RemoteMemoryObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\RemoteMemoryObjects\Quest.h">
+      <Filter>PoE\RemoteMemoryObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\RemoteMemoryObjects\QuestData.h">
+      <Filter>PoE\RemoteMemoryObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\RemoteMemoryObjects\WorldArea.h">
+      <Filter>PoE\RemoteMemoryObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Element.h">
+      <Filter>PoE</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Resource\QuestResource.h">
+      <Filter>PoE\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Resource\SkillResource.h">
+      <Filter>PoE\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Resource\StatsResource.h">
+      <Filter>PoE\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Components\Armour.h">
+      <Filter>PoE\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Components\AttributeRequirements.h">
+      <Filter>PoE\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Components\Charges.h">
+      <Filter>PoE\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Components\Quality.h">
+      <Filter>PoE\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Components\SkillGem.h">
+      <Filter>PoE\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Components\Sockets.h">
+      <Filter>PoE\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Components\Stack.h">
+      <Filter>PoE\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Components\Weapon.h">
+      <Filter>PoE\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Resource\ItemMods.h">
+      <Filter>PoE\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Resource\ItemResource.h">
+      <Filter>PoE\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\RemoteMemoryObjects\ItemMod.h">
+      <Filter>PoE\RemoteMemoryObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\RemoteMemoryObjects\SelectCharacterState.h">
+      <Filter>PoE\RemoteMemoryObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Patch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Controllers\GameFunc.h">
+      <Filter>Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="Logic\GameLogic.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Logic\Path.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\CalcPath.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Logic\Skill.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Resource\ObjectResource.h">
+      <Filter>PoE\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Components\Transitionable.h">
+      <Filter>PoE\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\MurmurHash2.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Logic\QuestLogic.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Resource\WorldAreaResource.h">
+      <Filter>PoE\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\AStar.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\Dijkstra.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\Node.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\PathAlgorithm.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\PathFinder.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Extensions\PassiveSkill.h">
+      <Filter>PoE\Extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Components\MinimapIcon.h">
+      <Filter>PoE\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Resource\Gem.h">
+      <Filter>PoE\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Controllers\FsController.h">
+      <Filter>Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\FilesInMemory\QuestStates.h">
+      <Filter>PoE\FilesInMemory</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\RemoteMemoryObjects\QuestState.h">
+      <Filter>PoE\RemoteMemoryObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\FileInMemory.h">
+      <Filter>PoE</Filter>
+    </ClInclude>
+    <ClInclude Include="PoE\Components\Base.h">
+      <Filter>PoE\Components</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PoEAttach.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\Common.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Global\Global.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Offsets.cpp">
+      <Filter>PoE</Filter>
+    </ClCompile>
+    <ClCompile Include="Controllers\GameController.cpp">
+      <Filter>Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="Controllers\GameStateController.cpp">
+      <Filter>Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\RemoteMemoryObject.cpp">
+      <Filter>PoE</Filter>
+    </ClCompile>
+    <ClCompile Include="Models\EntityListWrapper.cpp">
+      <Filter>Models</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\RemoteMemoryObjects\IngameData.cpp">
+      <Filter>PoE\RemoteMemoryObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\RemoteMemoryObjects\ServerData.cpp">
+      <Filter>PoE\RemoteMemoryObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Entity.cpp">
+      <Filter>PoE</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Components\Positioned.cpp">
+      <Filter>PoE\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Component.cpp">
+      <Filter>PoE</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\RemoteMemoryObjects\IngameState.cpp">
+      <Filter>PoE\RemoteMemoryObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Extensions\PlayerData.cpp">
+      <Filter>PoE\Extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Extensions\NpcData.cpp">
+      <Filter>PoE\Extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Extensions\MonsterData.cpp">
+      <Filter>PoE\Extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Extensions\ItemData.cpp">
+      <Filter>PoE\Extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\RemoteMemoryObjects\InventoryHolder.cpp">
+      <Filter>PoE\RemoteMemoryObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\RemoteMemoryObjects\ServerInventory.cpp">
+      <Filter>PoE\RemoteMemoryObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Components\Mods.cpp">
+      <Filter>PoE\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Components\Actor.cpp">
+      <Filter>PoE\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Components\Chest.cpp">
+      <Filter>PoE\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Components\Life.cpp">
+      <Filter>PoE\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Components\Npc.cpp">
+      <Filter>PoE\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Components\Player.cpp">
+      <Filter>PoE\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Components\Render.cpp">
+      <Filter>PoE\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Components\Stats.cpp">
+      <Filter>PoE\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Components\Targetable.cpp">
+      <Filter>PoE\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Components\WorldItem.cpp">
+      <Filter>PoE\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Elements\IncursionWindow.cpp">
+      <Filter>PoE\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Elements\ItemOnGroundTooltip.cpp">
+      <Filter>PoE\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Elements\ItemsOnGroundLabelElement.cpp">
+      <Filter>PoE\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Elements\Map.cpp">
+      <Filter>PoE\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Elements\PoeChatElement.cpp">
+      <Filter>PoE\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Elements\SkillElement.cpp">
+      <Filter>PoE\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Elements\StashElement.cpp">
+      <Filter>PoE\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Elements\SubterraneanChart.cpp">
+      <Filter>PoE\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Elements\SyndicatePanel.cpp">
+      <Filter>PoE\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Elements\WorldMapElement.cpp">
+      <Filter>PoE\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Extensions\ChestsData.cpp">
+      <Filter>PoE\Extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Extensions\OtherData.cpp">
+      <Filter>PoE\Extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Extensions\WorldItemData.cpp">
+      <Filter>PoE\Extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\RemoteMemoryObjects\ActorSkill.cpp">
+      <Filter>PoE\RemoteMemoryObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\RemoteMemoryObjects\Buff.cpp">
+      <Filter>PoE\RemoteMemoryObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\RemoteMemoryObjects\IngameUIElements.cpp">
+      <Filter>PoE\RemoteMemoryObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\RemoteMemoryObjects\Inventory.cpp">
+      <Filter>PoE\RemoteMemoryObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\RemoteMemoryObjects\Quest.cpp">
+      <Filter>PoE\RemoteMemoryObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\RemoteMemoryObjects\QuestData.cpp">
+      <Filter>PoE\RemoteMemoryObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\RemoteMemoryObjects\WorldArea.cpp">
+      <Filter>PoE\RemoteMemoryObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Element.cpp">
+      <Filter>PoE</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Resource\QuestResource.cpp">
+      <Filter>PoE\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Resource\SkillResource.cpp">
+      <Filter>PoE\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Resource\StatsResource.cpp">
+      <Filter>PoE\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Components\Armour.cpp">
+      <Filter>PoE\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Components\AttributeRequirements.cpp">
+      <Filter>PoE\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Components\Charges.cpp">
+      <Filter>PoE\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Components\Quality.cpp">
+      <Filter>PoE\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Components\SkillGem.cpp">
+      <Filter>PoE\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Components\Sockets.cpp">
+      <Filter>PoE\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Components\Stack.cpp">
+      <Filter>PoE\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Components\Weapon.cpp">
+      <Filter>PoE\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Resource\ItemMods.cpp">
+      <Filter>PoE\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Resource\ItemResource.cpp">
+      <Filter>PoE\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\RemoteMemoryObjects\ItemMod.cpp">
+      <Filter>PoE\RemoteMemoryObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\RemoteMemoryObjects\SelectCharacterState.cpp">
+      <Filter>PoE\RemoteMemoryObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Controllers\GameFunc.cpp">
+      <Filter>Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="Logic\GameLogic.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="Logic\Path.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\CalcPath.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Logic\Skill.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Resource\ObjectResource.cpp">
+      <Filter>PoE\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Components\Transitionable.cpp">
+      <Filter>PoE\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\MurmurHash2.c">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Logic\QuestLogic.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Resource\WorldAreaResource.cpp">
+      <Filter>PoE\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\AStar.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\Dijkstra.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\Node.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Extensions\PassiveSkill.cpp">
+      <Filter>PoE\Extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Components\MinimapIcon.cpp">
+      <Filter>PoE\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Resource\Gem.cpp">
+      <Filter>PoE\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Controllers\FsController.cpp">
+      <Filter>Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\FilesInMemory\QuestStates.cpp">
+      <Filter>PoE\FilesInMemory</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\RemoteMemoryObjects\QuestState.cpp">
+      <Filter>PoE\RemoteMemoryObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\FileInMemory.cpp">
+      <Filter>PoE</Filter>
+    </ClCompile>
+    <ClCompile Include="PoE\Components\Base.cpp">
+      <Filter>PoE\Components</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

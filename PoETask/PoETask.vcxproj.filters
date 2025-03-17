@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{992181df-2c6e-45da-a451-c2e3057179de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{7da8a8ea-1d78-46ea-a9f2-1b5838bbf171}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TcpComm">
+      <UniqueIdentifier>{9de4b58b-4d77-4e83-8869-821e6898df88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils\json">
+      <UniqueIdentifier>{54bf7ebc-d3d3-47d4-aa03-a00196474f4c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PoETask.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PoETaskDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\ComboListCtrl.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Global\Global.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Global\XorStr.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\CheckHeadCtrl.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\HListBox.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\InPlaceCombo.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\InPlaceEdit.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Common.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Inject\InjectCore.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="TcpComm\ASIO.h">
+      <Filter>TcpComm</Filter>
+    </ClInclude>
+    <ClInclude Include="TcpComm\Buffer.h">
+      <Filter>TcpComm</Filter>
+    </ClInclude>
+    <ClInclude Include="TcpComm\Encrypt.hpp">
+      <Filter>TcpComm</Filter>
+    </ClInclude>
+    <ClInclude Include="TcpComm\Engine.h">
+      <Filter>TcpComm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Global\Global_Comm.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\DeviceInfo.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\HTTPClient.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Auth.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\json.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\json-forwards.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\json\json.h">
+      <Filter>Utils\json</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\json\json-forwards.h">
+      <Filter>Utils\json</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PoETask.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PoETaskDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\ComboListCtrl.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Global\Global.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\CheckHeadCtrl.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\HListBox.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\InPlaceCombo.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\InPlaceEdit.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\Common.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Inject\InjectCore.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="TcpComm\ASIO.cpp">
+      <Filter>TcpComm</Filter>
+    </ClCompile>
+    <ClCompile Include="TcpComm\Buffer_ASIO.cpp">
+      <Filter>TcpComm</Filter>
+    </ClCompile>
+    <ClCompile Include="TcpComm\Engine.cpp">
+      <Filter>TcpComm</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\DeviceInfo.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\HTTPClient.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Auth.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\jsoncpp.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="PoETask.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\PoETask.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\PA" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\PoETask.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\checkboxes.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
