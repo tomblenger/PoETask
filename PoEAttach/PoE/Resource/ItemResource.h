@@ -2,6 +2,7 @@
 
 #include <Windows.h>
 #include <vector>
+#include <string>
 
 #define			ITEM_RES_COUNT			5572
 #define			ITEMCLASS_RES_COUNT		54

@@ -36,7 +36,7 @@ void Initialize()
 
 void __stdcall MainTimer()
 {
-	GameLogic::Instance->Main();
+	//GameLogic::Instance->Main();
 }
 
 void PressKeyAlternate(WCHAR wKey)

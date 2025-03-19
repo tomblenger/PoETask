@@ -23,7 +23,7 @@
     <ProjectGuid>{DCBD5135-5BE0-4AED-B09C-4FE6DFE030A1}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>PoEAttach</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -48,7 +48,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -94,7 +94,8 @@
       <ConformanceMode>false</ConformanceMode>
       <AdditionalIncludeDirectories>.\;.\Common;..\Global;.\Controllers;.\PoE;.\PoE\Components;.\PoE\Elements;.\PoE\FilesInMemory;.\PoE\Extensions;.\PoE\RemoteMemoryObjects;.\PoE\Resource;.\Models;.\Models\Interfaces;.\Logic;.\Utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4995;4996;</DisableSpecificWarnings>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

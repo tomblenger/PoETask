@@ -208,6 +208,12 @@ IsWindows10FallCreatorsOrGreater()
 }
 
 VERSIONHELPERAPI
+IsWindows11OrGreater()
+{
+    return IsWindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WIN10), LOBYTE(_WIN32_WINNT_WIN10), 0, 22000 );
+}
+
+VERSIONHELPERAPI
 IsWindowsServer()
 {
     OSVERSIONINFOEXW osvi = { sizeof( osvi ), 0, 0, 0, 0, { 0 }, 0, 0, 0, VER_NT_WORKSTATION };

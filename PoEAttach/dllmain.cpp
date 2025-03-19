@@ -240,7 +240,7 @@ void WaitThreadForWindow()
 		HWND hCurWnd = NULL;
 		do
 		{
-			hCurWnd = FindWindowEx(NULL, hCurWnd, NULL, L"Path of Exile");
+			hCurWnd = FindWindowEx(NULL, hCurWnd, NULL, L"Path of Exile 2");
 			DWORD dwProcessID = 0;
 			GetWindowThreadProcessId(hCurWnd, &dwProcessID);
 			if (dwProcessID == GetCurrentProcessId())
@@ -265,7 +265,7 @@ void WaitThreadForWindow()
 #endif
 
 	BasePOE = (uintptr_t)GetModuleHandle(NULL);
-	Initialize();
+//	Initialize();
 
 	//SetUnhandledExceptionFilter(NULL);
 	g_vectoredHandler = AddVectoredExceptionHandler(999, (PVECTORED_EXCEPTION_HANDLER)VectoredHandler);
@@ -298,7 +298,7 @@ void InitPCI()
 	//swprintf(szMapParam, L"%s", EVENT_WINDOW_NAME);
 	//g_hWindowEvent = CreateEvent(NULL, NULL, NULL, szMapParam);
 	GetLocalTime(&tm);
-	swprintf(g_pszLogPath, L"%s\\Log\\%d\\%02d월%02d일%02d시%02d분%02d초.log", g_pGameSettingDLL->szAppPath, g_pParam->nConnection, tm.wMonth, tm.wDay, tm.wHour, tm.wMinute, tm.wSecond);
+	swprintf(g_pszLogPath, L"%s\\Log\\%d\\%02d_%02d_%02d_%02d_%02d.log", g_pGameSettingDLL->szAppPath, g_pParam->nConnection, tm.wMonth, tm.wDay, tm.wHour, tm.wMinute, tm.wSecond);
 	Log(L"Init");
 	Log(L"*****");
 

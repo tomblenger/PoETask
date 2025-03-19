@@ -25,7 +25,7 @@ public:
 	void Initialize();
 	void InitPCI();
 	void InitUI();
-	void LogUI(DWORD dwNo, WCHAR *szFormat, ...);
+	void LogUI(DWORD dwNo, const WCHAR *szFormat, ...);
 	void UpdateLog(DWORD dwNo);
 	void LoadSetting();
 	void SaveSetting();

@@ -5,7 +5,6 @@
 #include "stdafx.h"
 #include "PoETask.h"
 #include "PoETaskDlg.h"
-#include "Auth.h"
 #include "Common.h"
 
 #ifdef _DEBUG

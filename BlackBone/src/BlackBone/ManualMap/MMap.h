@@ -108,8 +108,7 @@ enum eLoadFlags
     NoTLS           = 0x10000,   // Skip TLS initialization and don't execute TLS callbacks
     IsDependency    = 0x20000,   // Module is a dependency
 
-	InjectShellCode	= 0x40000,	 // Do not create new threads, don't use hijacking, then inject shell codes
-	BaseRWX         = 0x80000,	 // Do not allocate memory for module, use the original RWX section for it
+	InjectShellCode	= 0x40000,	 // Don't create new threads, don't use hijacking, then inject shell codes
 };
 
 ENUM_OPS( eLoadFlags )
@@ -269,8 +268,7 @@ private:
     call_result_t<ModuleDataPtr> FindOrMapModule(
         const std::wstring& path,
         void* buffer, size_t size, bool asImage,
-        eLoadFlags flags = NoFlags, 
-		const std::wstring& moduleName = L""
+        eLoadFlags flags = NoFlags
         );
 
     /// <summary>

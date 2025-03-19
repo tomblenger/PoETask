@@ -69,7 +69,37 @@ void FindPattern( const ScanParams& scan32, const ScanParams& scan64, const Offs
 /// <param name="result">Result</param>
 void OSFillPatterns( std::unordered_map<ptr_t*, OffsetData>& patterns, SymbolData& result )
 {
-    if (IsWindows10FallCreatorsOrGreater())
+    if (IsWindows11OrGreater())
+    {
+        // LdrpHandleTlsData
+        // 74 37 44 8D 43 09
+        patterns.emplace(&result.LdrpHandleTlsData64, OffsetData{ "\x74\x37\x44\x8d\x43\x09", true, 0x43 });
+
+        // RtlInsertInvertedFunctionTable
+        // 8B FA 49 8D 43 20
+        patterns.emplace(&result.RtlInsertInvertedFunctionTable64, OffsetData{ "\x8b\xfa\x49\x8d\x43\x20", true, 0x10 });
+
+        // RtlpInsertInvertedFunctionTableEntry
+        // 49 8B E8 48 8B FA 0F 84
+        patterns.emplace(&result.LdrpInvertedFunctionTable64, OffsetData{ "\x49\x8b\xe8\x48\x8b\xfa\x0f\x84", true, -1, -0xF, 2, 6 });
+
+        // RtlInsertInvertedFunctionTable
+        // 53 56 57 8D 45 F8 8B FA
+        patterns.emplace(&result.RtlInsertInvertedFunctionTable32, OffsetData{ "\x53\x56\x57\x8d\x45\xf8\x8b\xfa", false, 0x8 });
+
+        // RtlpInsertInvertedFunctionTableEntry
+        // 33 F6 46 3B C6
+        patterns.emplace(&result.LdrpInvertedFunctionTable32, OffsetData{ "\x33\xF6\x46\x3B\xC6", false, -1, -0x1B });
+
+        // LdrpHandleTlsData
+        // 8B C1 8D 4D BC 51
+        patterns.emplace(&result.LdrpHandleTlsData32, OffsetData{ "\x8b\xc1\x8d\x4d\xbc\x51", false, 0x18 });
+
+        // LdrProtectMrdata
+        // 75 24 85 F6 75 08
+        patterns.emplace(&result.LdrProtectMrdata, OffsetData{ "\x75\x24\x85\xf6\x75\x08", false, 0x1C });
+    }
+    else if (IsWindows10FallCreatorsOrGreater())
     {
         // LdrpHandleTlsData
         // 74 33 44 8D 43 09

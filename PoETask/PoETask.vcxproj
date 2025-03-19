@@ -23,7 +23,7 @@
     <ProjectGuid>{600896A0-E654-42E8-9685-D7FB1E6C64D4}</ProjectGuid>
     <Keyword>MFCProj</Keyword>
     <RootNamespace>PoETask</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -44,14 +44,14 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Static</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Static</UseOfMfc>
@@ -80,6 +80,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(SolutionDir);$(SolutionDir)blackbone\contrib;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IntDir>$(Platform)\Release\</IntDir>
+    <OutDir>$(SolutionDir)$(Platform)\Release\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -117,14 +119,14 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_NO_SQL_;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.\;.\Utils;.\Inject;..\Global;.\Common;.\TcpComm;$(BOOST_PATH);C:/Program Files/Themida;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;.\Utils;.\Inject;..\Global;.\Common;.\TcpComm;D:\Shared\boost_1_81_0;$(BOOST_PATH);C:/Program Files/Themida;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <DisableSpecificWarnings>4995;4996;4307;4309;</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
-      <AdditionalLibraryDirectories>C:\boost_1_81_0\lib64-msvc-14.1;$(BOOST_PATH)\stage\lib;C:/Program Files/Themida/ThemidaSDK/Lib/COFF;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\Shared\boost_1_81_0\lib64-msvc-14.3;C:/Program Files/Themida/ThemidaSDK/Lib/COFF;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -181,7 +183,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
-      <AdditionalLibraryDirectories>C:\boost_1_81_0\lib64-msvc-14.1;$(BOOST_PATH)\stage\lib;C:/Program Files/Themida/ThemidaSDK/Lib/COFF;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\Shared\boost_1_81_0\lib64-msvc-14.3;C:/Program Files/Themida/ThemidaSDK/Lib/COFF;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -198,7 +200,6 @@
     <ClInclude Include="..\Global\Global.h" />
     <ClInclude Include="..\Global\Global_Comm.h" />
     <ClInclude Include="..\Global\XorStr.h" />
-    <ClInclude Include="Auth.h" />
     <ClInclude Include="Common\Common.h" />
     <ClInclude Include="Inject\InjectCore.h" />
     <ClInclude Include="PoETask.h" />
@@ -214,7 +215,6 @@
     <ClInclude Include="Utils\ComboListCtrl.h" />
     <ClInclude Include="Utils\DeviceInfo.h" />
     <ClInclude Include="Utils\HListBox.h" />
-    <ClInclude Include="Utils\HTTPClient.h" />
     <ClInclude Include="Utils\InPlaceCombo.h" />
     <ClInclude Include="Utils\InPlaceEdit.h" />
     <ClInclude Include="Utils\json-forwards.h" />
@@ -224,7 +224,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Global\Global.cpp" />
-    <ClCompile Include="Auth.cpp" />
     <ClCompile Include="Common\Common.cpp" />
     <ClCompile Include="Inject\InjectCore.cpp" />
     <ClCompile Include="PoETask.cpp" />
@@ -242,7 +241,6 @@
     <ClCompile Include="Utils\ComboListCtrl.cpp" />
     <ClCompile Include="Utils\DeviceInfo.cpp" />
     <ClCompile Include="Utils\HListBox.cpp" />
-    <ClCompile Include="Utils\HTTPClient.cpp" />
     <ClCompile Include="Utils\InPlaceCombo.cpp" />
     <ClCompile Include="Utils\InPlaceEdit.cpp" />
     <ClCompile Include="Utils\jsoncpp.cpp" />

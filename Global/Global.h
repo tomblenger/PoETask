@@ -12,7 +12,7 @@
 #endif
 //#define		DUMP_PROCESS
 //#define		SDK_DUMP
-#define		AUTH
+//#define		AUTH
 //#define		_PROTECT
 
 #define		PI							3.1415926537f

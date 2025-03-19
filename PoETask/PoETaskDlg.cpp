@@ -101,6 +101,38 @@ DWORD GetProcessIdByName(const WCHAR *szProcessName)
 	return 0;
 }
 
+DWORD FindProcessID(const std::wstring& strProcess)
+{
+	HANDLE hProcess = NULL;
+	HANDLE hSnapShot;
+	PROCESSENTRY32 pEntry;
+	BOOL bLoop;
+	DWORD	pid = 0;
+
+	hSnapShot = CreateToolhelp32Snapshot(TH32CS_SNAPALL, NULL);
+	pEntry.dwSize = sizeof(PROCESSENTRY32);
+	bLoop = Process32First(hSnapShot, &pEntry);
+
+	while (bLoop)
+	{
+		if (strProcess == pEntry.szExeFile)
+		{
+			hProcess = OpenProcess(MAXIMUM_ALLOWED, FALSE, pEntry.th32ProcessID);
+			if (hProcess)
+			{
+				pid = pEntry.th32ProcessID;
+				break;
+			}
+		}
+		else
+		{
+			bLoop = Process32Next(hSnapShot, &pEntry);
+		}
+	}
+	CloseHandle(hSnapShot);
+	return pid;
+}
+
 void RunThread(LPVOID param)
 {
 	CString					strPath;
@@ -135,17 +167,17 @@ void RunThread(LPVOID param)
 
 	ZeroMemory(&si, sizeof(STARTUPINFO));
 	si.cb = sizeof(STARTUPINFO);
-	CreateProcess(szApp, szAppParam, NULL, NULL, NULL, NULL, NULL, g_szGamePath, &si, &pi);
+/*	CreateProcess(szApp, szAppParam, NULL, NULL, NULL, NULL, NULL, g_szGamePath, &si, &pi);
 	CloseHandle(pi.hProcess);
 	CloseHandle(pi.hThread);
 
-	g_pRunInfo[dwNo].hProcess = OpenProcess(PROCESS_TERMINATE | SYNCHRONIZE, 0, pi.dwProcessId);
+	g_pRunInfo[dwNo].hProcess = OpenProcess(PROCESS_TERMINATE | SYNCHRONIZE, 0, pi.dwProcessId)*/;
 	g_pRunInfo[dwNo].isRunGame = 1;
 	
 	while (true)
 	{
 		Sleep(10);
-		dwPid = GetProcessIdByNameAndParent(textwonce(L"PathOfExile_x64.exe"), pi.dwProcessId);
+		dwPid = FindProcessID(textwonce(L"PathOfExile.exe"));
 		if (dwPid)
 			break;
 	}
@@ -156,8 +188,8 @@ void RunThread(LPVOID param)
 	pbBuffer = new BYTE[nBufferLen];
 	g_pDlg->GetEncryptedResource(nID, pbBuffer, FALSE);
 #else
-	//strPath.Format(L"%s\\..\\Release\\POEAttach.dll", g_szAppPath);
-	strPath.Format(L"%s\\POEAttach.dll", g_szAppPath);
+	strPath.Format(L"%s\\..\\Release\\POEAttach.dll", g_szAppPath);
+	//strPath.Format(L"%s\\POEAttach.dll", g_szAppPath);
 	if (!file.Open(strPath, CFile::modeRead | CFile::typeBinary))
 	{
 		return;
@@ -170,7 +202,7 @@ void RunThread(LPVOID param)
 #endif
 
 	CloseHandle(g_pRunInfo[dwNo].hProcess);
-	g_pRunInfo[dwNo].hProcess = OpenProcess(PROCESS_TERMINATE | SYNCHRONIZE, 0, dwPid);
+	g_pRunInfo[dwNo].hProcess = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_TERMINATE | SYNCHRONIZE, 0, dwPid);
 	ManualMap(dwPid, pbBuffer, nBufferLen, NoFlags, L"", "", &args);
 	delete[] pbBuffer;
 
@@ -235,6 +267,8 @@ void RunMainThread(LPVOID param)
 	memset(g_pRunInfo, 0, sizeof(g_pRunInfo));
 
 	i = 0;
+	CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)RunThread, (LPVOID)(uintptr_t)i, NULL, NULL);
+	i = 1;
 	while (true)
 	{
 #ifdef _PROTECT
@@ -447,8 +481,8 @@ void CPoETaskDlg::Initialize()
 
 	GetDeviceKey(g_szDeviceKey);
 	StartLog(this->GetSafeHwnd(), 0);
-	StartClient(OnAddSession, OnRemoveSession, OnRecvPacket);
-	::CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)KeepAliveThread, NULL, NULL, NULL);
+//	StartClient(OnAddSession, OnRemoveSession, OnRecvPacket);
+//	::CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)KeepAliveThread, NULL, NULL, NULL);
 }
 
 void CPoETaskDlg::InitPCI()
@@ -537,7 +571,7 @@ void CPoETaskDlg::InitUI()
 #endif
 }
 
-void CPoETaskDlg::LogUI(DWORD dwNo, WCHAR *szFormat, ...)
+void CPoETaskDlg::LogUI(DWORD dwNo, const WCHAR *szFormat, ...)
 {
 	va_list			arg;
 	SYSTEMTIME		time;
@@ -688,17 +722,17 @@ void CPoETaskDlg::ExitProgram()
 {
 	DWORD i = 0;
 
-	Logout();
+//	Logout();
 
-	for (i = 0; i < g_dwAppCount; i++)
-	{
-		ExitApp(i);
-		g_pRunInfo[i].isRunGame = 1;
-	}
+//	for (i = 0; i < g_dwAppCount; i++)
+//	{
+//		ExitApp(i);
+//		g_pRunInfo[i].isRunGame = 1;
+//	}
 
 	SaveSetting();
 
-	GetServerSession()->DoDisconnect();
+//	GetServerSession()->DoDisconnect();
 	TerminateProcess(GetCurrentProcess(), 0);
 }
 
@@ -1159,11 +1193,11 @@ void AttachThread()
 	BYTE *pbBuffer = NULL;
 	int	 nBufferLen = 0, nID = 0;
 
-	dwPid = GetProcessIdByName(L"PathOfExile_x64.exe");
+	dwPid = FindProcessID(L"PathOfExile.exe");
 	while (!dwPid)
 	{
 		Sleep(500);
-		dwPid = GetProcessIdByName(L"PathOfExile_x64.exe");
+		dwPid = FindProcessID(L"PathOfExile.exe");
 	}
 	// 	if (!dwPid)
 	// 		return;
@@ -1178,7 +1212,8 @@ void AttachThread()
 	pbBuffer = new BYTE[nBufferLen];
 	file.Read(pbBuffer, nBufferLen);
 	file.Close();
-	ManualMap(dwPid, pbBuffer, nBufferLen, NoFlags, L"", "");
+	auto ret = ManualMap(dwPid, pbBuffer, nBufferLen, NoFlags, L"", "");
+	delete[] pbBuffer;
 	//NativeInject(dwPid, strPath.GetBuffer(0));
 	//LoadLibrary(strPath.GetBuffer(0));
 #endif

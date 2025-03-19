@@ -108,9 +108,11 @@ call_result_t<ModuleDataPtr> MMap::MapImageInternal(
 
 	if (!(flags & InjectShellCode))
 	{
+        BLACKBONE_TRACE(L"ManualMap: Create RPC");
 		status = _process.remote().CreateRPCEnvironment(mode, true);
 		if (!NT_SUCCESS(status))
 		{
+            BLACKBONE_TRACE(L"ManualMap: Failed to create RPC");
 			Cleanup();
 			return status;
 		}
@@ -131,7 +133,7 @@ call_result_t<ModuleDataPtr> MMap::MapImageInternal(
     BLACKBONE_TRACE( L"ManualMap: Mapping image '%ls' with flags 0x%x", path.c_str(), flags );
 
     // Map module and all dependencies
-    auto mod = FindOrMapModule( path, buffer, size, asImage, flags, moduleName);
+    auto mod = FindOrMapModule( path, buffer, size, asImage, flags );
     if (!mod)
     {
         Cleanup();
@@ -184,11 +186,8 @@ call_result_t<ModuleDataPtr> MMap::MapImageInternal(
         else
         {
             img->imgMem.Write( offset, size, zeroBuf.get() );
-			if (!(img->flags & BaseRWX))
-			{
-				proc.memory().Protect(img->imgMem.ptr() + offset, size, PAGE_NOACCESS);
-				proc.memory().Free(img->imgMem.ptr() + offset, size, MEM_DECOMMIT);
-			}
+            proc.memory().Protect( img->imgMem.ptr() + offset, size, PAGE_NOACCESS );
+            proc.memory().Free( img->imgMem.ptr() + offset, size, MEM_DECOMMIT );
         }
     };
 
@@ -295,8 +294,7 @@ void MMap::FixManagedPath( ptr_t base, const std::wstring &path )
 call_result_t<ModuleDataPtr> MMap::FindOrMapModule(
     const std::wstring& path,
     void* buffer, size_t size, bool asImage,
-    eLoadFlags flags /*= NoFlags*/,
-	const std::wstring& moduleName/* = L""*/
+    eLoadFlags flags /*= NoFlags*/ 
     )
 {
     NTSTATUS status = STATUS_SUCCESS;
@@ -307,6 +305,7 @@ call_result_t<ModuleDataPtr> MMap::FindOrMapModule(
     ldrEntry.name = Utils::StripPath( ldrEntry.fullPath );
     pImage->flags = flags;
 
+	BLACKBONE_TRACE(L"FindOrMapModule-0");
     // Load and parse image
     status = buffer ? pImage->peImage.Load( buffer, size, !asImage ) : pImage->peImage.Load( path, flags & NoSxS ? true : false );
     if (!NT_SUCCESS( status ))
@@ -316,6 +315,7 @@ call_result_t<ModuleDataPtr> MMap::FindOrMapModule(
         return status;
     }
 
+	BLACKBONE_TRACE(L"FindOrMapModule-1");
     // Check if already loaded
     if (auto hMod = _process.modules().GetModule( path, LdrList, pImage->peImage.mType() ))
     {
@@ -323,6 +323,7 @@ call_result_t<ModuleDataPtr> MMap::FindOrMapModule(
         return hMod;
     }
 
+	BLACKBONE_TRACE(L"FindOrMapModule-2");
 	// Check architecture
     if (pImage->peImage.mType() == mt_mod32 && !_process.core().isWow64())
     {
@@ -338,7 +339,7 @@ call_result_t<ModuleDataPtr> MMap::FindOrMapModule(
     // Try to map image in high (>4GB) memory range
     if (flags & MapInHighMem)
     {
-		AllocateInHighMem(pImage->imgMem, pImage->peImage.imageSize());
+        auto st = AllocateInHighMem( pImage->imgMem, pImage->peImage.imageSize() );
 	}
     // Try to map image at it's original ASRL-aware base
     else if (flags & HideVAD)
@@ -381,43 +382,7 @@ call_result_t<ModuleDataPtr> MMap::FindOrMapModule(
     // Allocate normally if something went wrong
     if (!pImage->imgMem.valid())
     {
-		call_result_t<MemBlock> mem;
-		// Search RWX section in the module
-		if (flags & BaseRWX)
-		{
-			auto targetMod = _process.modules().GetModule(moduleName, LdrList, pImage->peImage.mType());
-			if (targetMod)
-			{
-				pe::PEImage tPEImage;
-
-				// 32bit path 
-				auto strFullPath = targetMod->fullPath;
-				wchar_t buf[MAX_PATH] = { 0 };
-				GetWindowsDirectoryW(buf, MAX_PATH);
-
-				std::wstring windir(buf);
-				std::transform(strFullPath.begin(), strFullPath.end(),strFullPath.begin(), towlower);
-				std::transform(windir.begin(), windir.end(), windir.begin(), towlower);
-				if (strFullPath.find(windir + L"\\system32") != -1 && pImage->peImage.mType() == mt_mod32)
-				{
-					strFullPath = windir + L"\\SysWOW64\\" + targetMod->name;
-				}
-				if (NT_SUCCESS(tPEImage.Load(strFullPath)))
-				{
-					for (auto& section : tPEImage.sections())
-					{
-						auto prot = GetSectionProt(section.Characteristics);
-						if (prot == PAGE_EXECUTE_READWRITE && section.Misc.VirtualSize >= pImage->peImage.imageSize())
-						{
-							mem = MemBlock(&_process.memory(), targetMod->baseAddress + section.VirtualAddress, section.Misc.VirtualSize, prot, true);
-							break;
-						}
-					}
-				}
-			}
-		}
-		else
-			mem = _process.memory().Allocate(pImage->peImage.imageSize(), PAGE_EXECUTE_READWRITE, 0/*pImage->peImage.imageBase()*/);
+		auto mem = _process.memory().Allocate(pImage->peImage.imageSize(), PAGE_EXECUTE_READWRITE, pImage->peImage.imageBase());
         if (!mem)
         {
             BLACKBONE_TRACE( L"ManualMap: Failed to allocate memory for image, status 0x%X", status );
@@ -484,7 +449,7 @@ call_result_t<ModuleDataPtr> MMap::FindOrMapModule(
     }
 
     // Apply proper memory protection for sections
-    if (!(flags & HideVAD) && !(flags & BaseRWX))
+    if (!(flags & HideVAD))
         ProtectImageMemory( pImage );
 
     // Make exception handling possible (C and C++)
@@ -621,7 +586,7 @@ NTSTATUS MMap::CopyImage( ImageContextPtr pImage )
     }
 
     // Set header protection
-    if (!(pImage->flags & HideVAD) && !(pImage->flags & BaseRWX))
+    if (!(pImage->flags & HideVAD))
     {
         status = pImage->imgMem.Protect( PAGE_READONLY, 0, dwHeaderSize );
         if (!NT_SUCCESS( status ))
